@@ -243,4 +243,8 @@ input[type=radio] {
   padding: 0 5px;
 }
 
+option:hover {
+  background-color: #689900;
+}
+
 /*# sourceMappingURL=index.css.map */

@@ -67,13 +67,17 @@
                                                             <option rel="{{ c2 }}"
                                                             {% if c2 == c %}
                                                                  selected 
-                                                            {% endif %}    
+                                                            {% endif %}
+                                                            onMouseOver="this.style.background='#689900'"
+                                                            onMouseOut="this.style.background='#80bc00'"     
                                                             >{{ product.attribute_name }}</option>
                                                         {% else %}
                                                             <option rel="{{ c2 }}" 
                                                             {% if c2 == c %}
-                                                                 selected 
-                                                            {% endif %}  
+                                                                 selected  
+                                                            {% endif %} 
+                                                            onMouseOver="this.style.background='#689900'"
+                                                            onMouseOut="this.style.background='#80bc00'" 
                                                             >
                                                             <img src="{{ product.attribute_image }}" class="item-img d-block w-100" alt="...">{{ product.attribute_name }}</option>
                                                         {% endif %}
