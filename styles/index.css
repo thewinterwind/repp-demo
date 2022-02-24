@@ -22,6 +22,7 @@ body {
   color: #FFF;
   padding: 10px 0;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .product-select-outer {
@@ -32,6 +33,10 @@ body {
   border-radius: 20px;
   height: 42px;
   display: inline-block;
+}
+
+option[selected] {
+  background: #689900;
 }
 
 .product-name {
@@ -164,18 +169,22 @@ input[type=radio] {
 
 .carousel-main-div {
   background: url("../img/bg-green.png") left top no-repeat;
-  background-size: 60rem;
 }
 
 .white-gray-btn {
   color: #b4b4b4;
   background: #FFF;
   border-radius: 17px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 3px 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   height: 35px;
   display: inline;
   padding: 10px 30px;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.white-gray-btn:hover {
+  color: #689900 !important;
 }
 
 .add-to-cart-div {
@@ -198,7 +207,7 @@ input[type=radio] {
 .indicator-bg {
   color: #b4b4b4;
   background: #FFF;
-  box-shadow: rgb(0 0 0 / 10%) 0px 3px 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   height: 5rem;
   display: inline;
   padding: 10px 5rem;
@@ -228,6 +237,10 @@ input[type=radio] {
 
 .rtl.widget-carousel {
   direction: ltr;
+}
+
+.count {
+  padding: 0 5px;
 }
 
 /*# sourceMappingURL=index.css.map */

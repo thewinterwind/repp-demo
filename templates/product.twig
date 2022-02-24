@@ -84,7 +84,9 @@
                                         </div>
                                         <div class="w-80 float-start text-center add-to-cart-div">
                                             <a href="javascript:void(0)" class="white-gray-btn me-2">Add to Cart</a>
-                                            <a href="javascript:void(0)" class="white-gray-btn">- 1 +</a>
+                                            <a href="javascript:void(0)" class="white-gray-btn">
+                                                <span class="minus">-</span> <span class="count">1</span> <span class="plus">+</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>        
@@ -119,6 +121,7 @@
             var mainCarousel = $('#mainCarousel').flexslider({
                 animation: "slide",
                 controlNav: false,
+                pauseOnHover: true,
                 rtl: false,
                 start: function(slider){
                   $('body').removeClass('loading');
@@ -163,7 +166,27 @@
             //set selected sliders
             mainSlider.flexAnimate(parseInt(selected));
             thumbnailSlider.flexAnimate(parseInt(selected));
-        });        
+        });
+
+        //minus product count
+        $('.minus').click(function(){
+            var count = parseInt($(this).parent().find('.count').text());
+            count--;
+            if(count <= 0)
+                count = 1;
+            
+            $(this).parent().find('.count').text(count);
+        });
+
+        //plus product count
+        $('.plus').click(function(){
+            var count = parseInt($(this).parent().find('.count').text());
+            count++;
+            if(count > 9)
+                count = 9;
+            
+            $(this).parent().find('.count').text(count);
+        })      
         
     </script>
 

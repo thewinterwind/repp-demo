@@ -22,6 +22,7 @@ body{
   color: #FFF;
   padding: 10px 0;
   border-radius: 15px;
+  cursor:pointer;
 }
 
 .product-select-outer{
@@ -34,6 +35,8 @@ body{
   display: inline-block; 
 }
 
+option[selected] { background: #689900; }
+
 .product-name{
   font-weight: 900;
   font-size: 4rem;
@@ -42,7 +45,7 @@ body{
 .product-name2{
   font-weight: 900;
   font-size: 5.7rem;
-  margin-top: -1rem;
+  margin-top: -2rem;
 }
 
 .product-caption{
@@ -177,6 +180,11 @@ input[type='radio'] {
   display: inline;
   padding: 10px 30px;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.white-gray-btn:hover{
+  color: #689900 !important;
 }
 
 .add-to-cart-div{
@@ -233,4 +241,8 @@ input[type='radio'] {
 
 .rtl.widget-carousel{ 
   direction: ltr; 
+}
+
+.count{
+  padding:0 5px;
 }
