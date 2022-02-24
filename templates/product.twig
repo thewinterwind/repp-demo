@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta https-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>REPP Sports Products</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;900&family=Red+Hat+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/flexislider/flexslider.css" type="text/css" media="screen" />
+    <script src="vendor/flexislider/demo/js/modernizr.js"></script>
+    <script defer src="vendor/flexislider/jquery.flexslider.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row justify-content-center pt-5 carousel-main-div py-5">
+        <div class="col-lg-9 col-md-9">
+
+            <section class="slider">
+                <div class="flexslider" id="mainCarousel">
+                    <ul class="slides">
+                    {% set c = 0 %}
+                    {% for key, product in productOptions %}
+                        <li rel="{{ c }}">
+                            <div class="row"> 
+                                <div class="col-lg-6 col-md-6">
+                                    <img src="{{ product.attribute_image }}" class="item-img-main d-block" alt="...">
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="text-black text-right">
+                                        <h5 class="product-name">RAZE</h5>
+                                        <h5 class="product-name2">ENERGY</h5>
+                                        <h6 class="product-caption">CASE PACK | 12 COUNT</h6>
+                                        <div class="mt-3 prices-div">
+                                            <div class="left-price float-start">
+                                                <span class="dollar-sign">$</span>
+                                                <span class="price">{{ product.price }}</span>
+                                            </div>
+                                            <span class="or float-start"><img src="img/or.png" /></span>
+                                            <div class="right-price float-start">
+                                                <span class="dollar-sign">$</span>
+                                                <span class="price">5.99</span>
+                                                <span class="small-caption">PAY OVER TIME</span>
+                                                <img  class="sezzle" src="img/sezzle.png" />
+                                            </div>
+                                        </div>
+                                        <div class="w-100 float-start">
+                                            <img src="img/stars.png" class="stars"> <span class="review-text">450 Reviews</span>
+                                        </div>
+                                        <div class="w-100 float-start mt-3 mb-4 subscription-div">
+                                            <form method="post">
+                                                <input type="radio" name="subscription" class="float-start me-2" value="1" /> <span class="float-start text-danger">Monthly Subscription</span>
+                                                <input type="radio" name="subscription" class="float-start ms-3 me-2" checked="checked" value="2" /> <span class="float-start">Single Purchase</span>
+                                            </form>
+                                        </div>
+                                        <div class="w-80 float-start text-center">
+                                            <span class="product-select-outer">
+                                                <select class="product-select">
+                                                    {% set c2 = 0 %}
+                                                    {% for key, product in productOptions %}
+                                                        {% if c2 == 0 %}
+                                                            <option rel="{{ c2 }}"
+                                                            {% if c2 == c %}
+                                                                 selected 
+                                                            {% endif %}    
+                                                            >{{ product.attribute_name }}</option>
+                                                        {% else %}
+                                                            <option rel="{{ c2 }}" 
+                                                            {% if c2 == c %}
+                                                                 selected 
+                                                            {% endif %}  
+                                                            >
+                                                            <img src="{{ product.attribute_image }}" class="item-img d-block w-100" alt="...">{{ product.attribute_name }}</option>
+                                                        {% endif %}
+                                                        {% set c2 = c2 + 1 %}
+                                                    {% endfor %}
+                                                </select>
+                                            </span>
+                                        </div>
+                                        <div class="w-80 float-start text-center add-to-cart-div">
+                                            <a href="javascript:void(0)" class="white-gray-btn me-2">Add to Cart</a>
+                                            <a href="javascript:void(0)" class="white-gray-btn">- 1 +</a>
+                                        </div>
+                                    </div>
+                                </div>        
+                            </div>
+                        </li>
+                    {% set c = c + 1 %}
+                    {% endfor %}
+                    </ul>
+                </div>
+                <div class="indicator-div">
+                    <div class="indicator-bg"></div>
+                    <div class="flexslider carousel" id="thumbnailCarousel">
+                        <ul class="slides">
+                            {% set c = 0 %}
+                            {% for key, product in productOptions %}
+                                <li class="indicator indicator{{ c }}">
+                                    <img src="{{ product.attribute_image }}" />
+                                </li>
+                            {% set c = c + 1 %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </section>   
+        </div>         
+    </div>
+
+    <script type="text/javascript">
+        $(window).load(function(){
+
+            //Declare main carousel
+            var mainCarousel = $('#mainCarousel').flexslider({
+                animation: "slide",
+                controlNav: false,
+                rtl: false,
+                start: function(slider){
+                  $('body').removeClass('loading');
+                },
+                after: function(slider) {
+
+                    //initialize all indicators
+                    $('.indicator').each(function(){
+                        $(this).removeClass('flex-active-slide');
+                    });
+                    
+                    //activate selected indicator base on the main slider
+                    var selected = $('#mainCarousel ul li.flex-active-slide').attr('rel');
+                    $('.indicator'+selected).addClass('flex-active-slide');
+                }
+            });
+
+            //Declare thumbnail carousel
+            var thumbnailCarousel = $('#thumbnailCarousel').flexslider({
+                animation: "slide",
+                animationLoop: false,
+                controlNav: false,
+                itemWidth: 120,
+                itemMargin: 10,
+                pausePlay: false,
+                mousewheel: true,
+                slideshow: false,
+                rtl: false,
+                asNavFor:'.flexslider'
+            });
+
+        });
+
+        //Selection of product via dropdown
+        $('.product-select').change(function(){
+            var selected = $(this).find(":selected").attr('rel');
+            var self = $(this);
+
+            var mainSlider = $('#mainCarousel').data('flexslider');
+            var thumbnailSlider = $('#thumbnailCarousel').data('flexslider');
+            
+            //set selected sliders
+            mainSlider.flexAnimate(parseInt(selected));
+            thumbnailSlider.flexAnimate(parseInt(selected));
+        });        
+        
+    </script>
+
+</body>
+</html>
